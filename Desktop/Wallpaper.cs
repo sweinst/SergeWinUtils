@@ -1,19 +1,9 @@
-﻿/*
- * NB:
- * - to use in Powershell, run:
- *  nuget install Vanara.Pinvoke.Shell32
- * - to get the definition of a Color
- * Add-Type -AssemblyName System.Drawing -PassThru
- * Once done, you can run things like
- * $a = [System.Drawing.Color]::FromName("red")
- */
-using System;
+﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Windows;
 using Vanara.PInvoke;
 
-namespace Utils.Desktop
+namespace WinUtils.Desktop
 {
    internal enum DesktopSlideshowOptions
     {
@@ -41,7 +31,7 @@ namespace Utils.Desktop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Rect
+    internal struct Rect
     {
         public int Left;
         public int Top;

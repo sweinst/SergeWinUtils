@@ -1,7 +1,11 @@
 ﻿#nullable enable
 using CommandLine;
 
-namespace Utils
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable ClassNeverInstantiated.Global
+#pragma warning disable 8618
+
+namespace WinUtils
 {
     [Verb("wallpaper", true, HelpText = "Set the desktop wallpaper")]
     public class OptionsWallpaper

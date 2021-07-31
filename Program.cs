@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Windows;
 using CommandLine;
-using CommandLine.Text;
+using WinUtils.Desktop;
 
-namespace Utils
+namespace WinUtils
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -27,12 +26,12 @@ namespace Utils
         {
             if (!string.IsNullOrWhiteSpace(options.Picture))
             {
-                Desktop.Wallpaper.SetWallPaper(options.Picture);
+                Wallpaper.SetWallPaper(options.Picture);
                 return;
             }
             if (!string.IsNullOrWhiteSpace(options.SlideShow))
             {
-                Desktop.Wallpaper.SetSlideShow(options.SlideShow, options.PeriodSeconds);
+                Wallpaper.SetSlideShow(options.SlideShow, options.PeriodSeconds);
                 return;
             }
             if (!string.IsNullOrWhiteSpace(options.Color))
@@ -46,14 +45,14 @@ namespace Utils
                 }
                 else
                 {
-                    c = Color.FromName(options.Color);;
+                    c = Color.FromName(options.Color);
                     if (!c.IsKnownColor)
                     {
                         // try to parse an hex value
                         throw new Exception($"Unable to parse the color '{options.Color}'");
                     }
                 }
-                Desktop.Wallpaper.SetSolidColor(c);                            
+                Wallpaper.SetSolidColor(c);                            
             }
 
             throw new Exception("Unable to parse the wallpaper options");
